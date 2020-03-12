@@ -124,14 +124,14 @@ int main() {
     std::vector<double> linsp_2 = linspace();
     std::vector<double> vec_fun_2 = compute_function_2(linsp_2);
     double delta_2 = find_delta(vec_fun_2);
-    fill(vec_fun_2, delta_2, 40);
+    fill(vec_fun_2, delta_2, 41);
 
     /** Третья функция**/
     std::cin >> width >> height >> x_0 >> x_1;
     std::vector<double> linsp_3 = linspace();
     std::vector<double> vec_fun_3 = compute_function_3(linsp_3);
     double delta_3 = find_delta(vec_fun_3);
-    fill(vec_fun_3, delta_3, 0);
+    fill(vec_fun_3, delta_3, 1);
 
     /** Синус **/
     std::cin >> width >> height >> x_0 >> x_1;
