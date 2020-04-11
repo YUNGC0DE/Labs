@@ -4,12 +4,11 @@
 #include <cmath>
 #include <algorithm>
 #include <fstream>
-
 int width;
 int height;
 double x_0;
 double x_1;
-char tensor[100][100];
+std::vector<std::vector<char>> tensor;
 
 
 std::vector<double> linspace() {
@@ -69,7 +68,7 @@ double find_delta(const std::vector<double> &vec_fun) {
 
 
 /*Теоретически, выведет любую  функцию при правильной настройке парраметров (но не факт, что красиво)*/
-void fill(std::vector<double> &vec_fun, double &delta, int height_above_zero) {
+void fill(std::vector<double> &vec_fun, double delta, int height_above_zero) {
     std::ofstream st;
     st.open("file.txt",std::ios::app);
     double delta_1 = delta * double(height_above_zero) / height;
@@ -112,12 +111,20 @@ void fill(std::vector<double> &vec_fun, double &delta, int height_above_zero) {
 
 
 int main() {
-    /**первая функция**/
+
     std::cin >> width >> height >> x_0 >> x_1;
+    tensor.reserve(height+1);
+    for(int i = 0; i < height+1; i++){
+        tensor[i].reserve(width-1);
+   }
+
+    /**первая функция**/
     std::vector<double> linsp_1 = linspace();
     std::vector<double> vec_fun_1 = compute_function_1(linsp_1);
     double delta_1 = find_delta(vec_fun_1);
     fill(vec_fun_1, delta_1, 10 /*Высота оси OX относительно заданной высоты*/);
+
+    tensor.clear();
 
     /**Вторая функция**/
     std::cin >> width >> height >> x_0 >> x_1;
@@ -126,12 +133,16 @@ int main() {
     double delta_2 = find_delta(vec_fun_2);
     fill(vec_fun_2, delta_2, 41);
 
+    tensor.clear();
+
     /** Третья функция**/
     std::cin >> width >> height >> x_0 >> x_1;
     std::vector<double> linsp_3 = linspace();
     std::vector<double> vec_fun_3 = compute_function_3(linsp_3);
     double delta_3 = find_delta(vec_fun_3);
     fill(vec_fun_3, delta_3, 1);
+
+    tensor.clear();
 
     /** Синус **/
     std::cin >> width >> height >> x_0 >> x_1;
