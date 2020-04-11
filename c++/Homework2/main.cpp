@@ -4,6 +4,7 @@
 #include <cmath>
 #include <algorithm>
 #include <fstream>
+
 int width;
 int height;
 double x_0;
