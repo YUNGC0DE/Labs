@@ -116,7 +116,7 @@ int main() {
     std::cin >> width >> height >> x_0 >> x_1;
     tensor.reserve(height+1);
     for(int i = 0; i < height+1; i++){
-        tensor[i].reserve(width-1);
+        tensor[i].reserve(width);
    }
 
     /**первая функция**/
