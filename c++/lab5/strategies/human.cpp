@@ -87,10 +87,10 @@ step_t human_strategy_t::make_next_step(const field_t &fld, std::pair<size_t, si
     std::string cols = "  A  B  C  D  E  F  G  H";
     std::cout << cols << std::endl;
     for (const auto &line : fld.fld) {
-        std::cout << i << "  ";
+        std::cout << i << " ";
         i++;
         for (char c : line) {
-            std::cout << c << ' ';
+            std::cout << c << "  ";
         }
         std::cout << std::endl;
     }

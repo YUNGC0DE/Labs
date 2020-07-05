@@ -99,16 +99,16 @@ game_t::apply_step(const step_t &step, size_t player_num, std::set<std::pair<int
     int next_step_;
     player_num == 0 ? next_step_ = 8 : next_step_ = 1;
 
-    if (x1y1 == letter && !kill && (((step.y2 - step.y1) && player_num == 0) ||
-        ((step.y1 - step.y2) && player_num == 1)) == 1 && (abs(step.x2 - step.x1) ||
+    if (x1y1 == letter && !kill && (((step.y2 - step.y1) == 1 && player_num == 0) ||
+        ((step.y1 - step.y2) == 1 && player_num == 1)) && (abs(step.x2 - step.x1) ||
         abs(step.x1 - step.x2)) == 1) {
         //если просто ходим
         std::swap(x2y2, x1y1);
         return {true, next_player};
 
 
-    } else if (x1y1 == letter && !kill && (((step.y2 - step.y1) && player_num == 0)||
-              ((step.y1 - step.y2) && player_num == 1)) == 1 && (abs(step.x2 - step.x1) ||
+    } else if (x1y1 == letter && !kill && (((step.y2 - step.y1) == 1 && player_num == 0)||
+              ((step.y1 - step.y2) == 1 && player_num == 1)) && (abs(step.x2 - step.x1) ||
               abs(step.x1 - step.x2)) == 1 && step.y2 == next_step_) {
         // становимся дамкой
         std::swap(x2y2, x1y1);
