@@ -40,9 +40,14 @@ step_t human_strategy_t::make_first_step(const field_t &fld) {
     int x1 = 42, y1;
     int x2 = 42, y2;
     std::string coords1;
-    std::cin >> coords1;
-    x_char = char(coords1[0]);
-    y1 = std::stoi(&coords1[1]);
+    try {
+        std::cin >> coords1;
+        x_char = char(coords1[0]);
+        y1 = std::stoi(&coords1[1]);
+    }catch(const std::exception& obj){
+        std::cout << "No Russian letters!! \n";
+        return {-1, -1, -1, -1};
+    }
     std::unordered_map<char, int> mapping = {
               {1, 'A'}
             , {2, 'B'}
@@ -60,9 +65,15 @@ step_t human_strategy_t::make_first_step(const field_t &fld) {
 
     std::cout << "Make your step : " << std::endl;
     std::string coords2;
-    std::cin >> coords2;
-    x_char = char(coords2[0]);
-    y2 = std::stoi(&coords2[1]);
+    try {
+        std::cin >> coords2;
+        x_char = char(coords2[0]);
+        y2 = std::stoi(&coords2[1]);
+    }catch(const std::exception& obj){
+        std::cout << "No Russian letters!! \n";
+        return {-1, -1, -1, -1};
+    }
+
     for(auto coord: mapping)
         if(x_char==coord.second){
             x2 = coord.first;
@@ -89,9 +100,14 @@ step_t human_strategy_t::make_next_step(const field_t &fld, std::pair<size_t, si
     int x2 = 42, y2;
     char x_char;
     std::string coords;
-    std::cin >> coords;
-    x_char = char(coords[0]);
-    y2 = std::stoi(&coords[1]);
+    try {
+        std::cin >> coords;
+        x_char = char(coords[0]);
+        y2 = std::stoi(&coords[1]);
+    }catch(const std::exception& obj){
+        std::cout << "No Russian letters!! \n";
+        return {-1, -1, -1, -1};
+    }
     std::unordered_map<char, int> mapping = {
               {1, 'A'}
             , {2, 'B'}

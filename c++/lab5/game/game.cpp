@@ -222,7 +222,6 @@ void game_t::play() {
             apply_result = apply_step(step, counter, attack_checkers);
             is_correct = apply_result.correct;
             if (!is_correct) {
-                std::cout << "kek";
                 players[counter]->on_incorrect_step(step);
             }
         }
